@@ -17,8 +17,6 @@ router.get('/', (req, res)=>{
 })
 
 router.post('/', (req, res) => {
-    // Array data is sent as a string; parse it
-    req.body.hunters = JSON.parse(req.body.hunters);
     db.Bounty.create(req.body)
     .then(bounty => {
         res.status(201).send(bounty)
@@ -41,8 +39,6 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-    // Array data is sent as a string; parse it
-    req.body.hunters = JSON.parse(req.body.hunters)
     db.Bounty.findOneAndUpdate({
         _id: req.params.id
     },
