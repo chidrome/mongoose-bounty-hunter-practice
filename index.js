@@ -1,10 +1,12 @@
 // Require modules
-const express = require('express')
+const cors = require('cors');
+const express = require('express');
 
 // App instance
 const app = express();
 
 // Set up middleware
+app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 
 // Controllers
